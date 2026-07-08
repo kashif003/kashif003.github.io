@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Kashif Riyaz - AI Engineer & Backend Developer</title>
+    <title>Kashif - AI Engineer & Backend Developer</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script>
@@ -58,6 +58,7 @@
         --ghost-text: rgba(255, 255, 255, 0.1);
         --footer-bg: #000000;
         --profile-photo: url(images/kashif_2.jpeg);
+        --contact-photo: url(images/kashif_4.jpeg);
       }
       :root[data-theme="light"] {
         --bg: #f6f1e7;
@@ -70,6 +71,7 @@
         --ghost-text: rgba(0, 0, 0, 0.06);
         --footer-bg: #101114;
         --profile-photo: url(images/kashif_1.jpeg);
+        --contact-photo: url(images/kashif_3.jpeg);
       }
 
       body { background: var(--bg) !important; color: var(--text) !important; }
@@ -136,8 +138,8 @@
       :root[data-theme="light"] .navbar-toggler .oi {
         color: var(--text) !important;
       }
-      .owl-carousel.home-slider .slider-item .slider-text .subheading { color: var(--accent-text) !important; }
-      .owl-carousel.home-slider .slider-item .slider-text h1 span { color: var(--accent-text) !important; }
+      #home-section .text .subheading { color: var(--accent-text) !important; }
+      #home-section .text h1 span { color: var(--accent-text) !important; }
       .ftco-navbar-light .navbar-nav > .nav-item .nav-link.active { color: var(--accent-text) !important; }
       .ftco-about ul.about-info li a { color: var(--accent-text) !important; }
       .ftco-about .counter-wrap .text p span.number { color: var(--accent-text) !important; }
@@ -156,7 +158,85 @@
       @media (max-width: 767.98px) {
         .hero-full .text { padding-left: 15px; padding-right: 15px; }
       }
-      #home-section { min-height: 500px; }
+      #home-section { min-height: 500px; padding: 150px 0 80px; }
+      .work-slider {
+        margin-top: 5px;
+      }
+      .work-slider .work-slide {
+        position: relative;
+        width: 100%;
+        height: 420px;
+        background-size: cover;
+        background-position: center center;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .work-slider .work-caption {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: 0;
+        padding: 14px 18px;
+        background: rgba(0, 0, 0, 0.55);
+        color: #fff !important;
+        font-size: 14px;
+      }
+      @media (max-width: 767.98px) {
+        .work-slider .work-slide { height: 280px; margin-top: 30px; }
+      }
+      .work-slider .owl-dots .owl-dot {
+        background: transparent !important;
+        border: none !important;
+        outline: none !important;
+        box-shadow: none !important;
+        -webkit-appearance: none !important;
+        appearance: none !important;
+        padding: 0 !important;
+      }
+      .work-slider .owl-dots .owl-dot::after,
+      .work-slider .owl-dots .owl-dot::before {
+        display: none !important;
+        content: none !important;
+      }
+      .owl-carousel.home-slider.work-slider .owl-dots {
+        position: static !important;
+        bottom: auto !important;
+        margin-top: 12px !important;
+        text-align: center;
+      }
+      .work-slider .owl-dots .owl-dot span {
+        display: block !important;
+        width: 10px !important;
+        height: 10px !important;
+        margin: 5px 7px !important;
+        border-radius: 30px !important;
+        background: var(--text-muted) !important;
+        opacity: 1;
+      }
+      .work-slider .owl-dots .owl-dot.active span,
+      .work-slider .owl-dots .owl-dot:hover span { background: var(--accent-text) !important; opacity: 1; }
+
+      :root[data-theme="light"] .btn.btn-primary {
+        background: var(--accent-text) !important;
+        border: 1px solid var(--accent-text) !important;
+        color: #fff !important;
+      }
+      :root[data-theme="light"] .btn.btn-primary:hover {
+        background: var(--accent-text) !important;
+        border: 1px solid var(--accent-text) !important;
+        color: #fff !important;
+      }
+      :root[data-theme="light"] .skill-tag { background: var(--accent-text) !important; }
+
+      .contact-photo-circle {
+        width: 180px;
+        height: 180px;
+        max-width: 50vw;
+        border-radius: 50%;
+        background-size: cover;
+        background-position: center center;
+      }
 
       .theme-toggle-btn {
         background: var(--card-bg);
@@ -183,7 +263,7 @@
 	  
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="index.html">Kashif Riyaz</a>
+	      <a class="navbar-brand" href="index.html">Kashif</a>
 	      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
@@ -205,39 +285,35 @@
 	    </div>
 	  </nav>
 	  <section id="home-section" class="hero">
-		  <div class="home-slider  owl-carousel">
-	      <div class="slider-item ">
-	      	<div class="overlay"></div>
-	        <div class="container">
-	          <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
-		          <div class="one-forth hero-full d-flex  align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-		          	<div class="text">
-		          		<span class="subheading">Hello!</span>
-			            <h1 class="mb-4 mt-3">I'm <span>Kashif Riyaz</span></h1>
-			            <h2 class="mb-4">AI Engineer & Backend Developer</h2>
-			            <p><a href="#contact-section" class="btn btn-primary py-3 px-4">Contact me</a> <a href="#projects-section" class="btn btn-white btn-outline-white py-3 px-4">My projects</a></p>
-		            </div>
-		          </div>
-	        	</div>
+	    <div class="container">
+	      <div class="row d-md-flex align-items-start">
+	        <div class="col-md-5 ftco-animate">
+	          <div class="text">
+	          	<span class="subheading">Hello!</span>
+	            <h1 class="mb-4 mt-3">My name is <span>Kashif</span></h1>
+	            <h2 class="mb-4">AI Engineer &amp; Backend Developer</h2>
+	            <p><a href="#contact-section" class="btn btn-primary py-3 px-4">Contact me</a> <a href="#projects-section" class="btn btn-white btn-outline-white py-3 px-4">My projects</a></p>
+	          </div>
 	        </div>
-	      </div>
-
-	      <div class="slider-item">
-	      	<div class="overlay"></div>
-	        <div class="container">
-	          <div class="row d-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
-		          <div class="one-forth hero-full d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-		          	<div class="text">
-		          		<span class="subheading">Hello!</span>
-			            <h1 class="mb-4 mt-3">AI/ML enthusiast based in <span>Amberg, Germany</span></h1>
-			            <p><a href="#contact-section" class="btn btn-primary py-3 px-4">Contact me</a> <a href="#projects-section" class="btn btn-white btn-outline-white py-3 px-4">My projects</a></p>
-		            </div>
-		          </div>
-	        	</div>
+	        <div class="col-md-7">
+	          <div class="home-slider owl-carousel work-slider">
+	            <div class="work-slide" style="background-image:url(images/work/1.jpeg);">
+	              <p class="work-caption">The brAInstorm colloquium, initiated by Prof. Dr. Christian Bergler, brings together students, doctoral candidates, researchers and industry partners.</p>
+	            </div>
+	            <div class="work-slide" style="background-image:url(images/work/2.jpeg);">
+	              <p class="work-caption">Night of Science at OTH Amberg &mdash; showcasing a robotic arm playing tic-tac-toe.</p>
+	            </div>
+	            <div class="work-slide" style="background-image:url(images/work/3.jpeg);">
+	              <p class="work-caption">The team behind the robotic arm project, including Prof. Dr. Christian Bergler and Prof. Dr. Tatiyana Ivanoska.</p>
+	            </div>
+	            <div class="work-slide" style="background-image:url(images/work/4.jpeg);">
+	              <p class="work-caption">First Career Day visit to OTH Amberg-Weiden.</p>
+	            </div>
+	          </div>
 	        </div>
 	      </div>
 	    </div>
-    </section>
+	    </section>
 
     <section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
     	<div class="container">
@@ -254,9 +330,9 @@
 		          <div class="col-md-12 heading-section ftco-animate">
 		          	<h1 class="big">About</h1>
 		            <h2 class="mb-4">About Me</h2>
-		            <p>AI Master&rsquo;s student at OTH Amberg with hands-on experience in backend development, machine learning and computer vision. Currently working as a Student Assistant building automated analysis pipelines, and exploring model pruning and explainable AI in my spare time.</p>
+		            <p>AI Master&rsquo;s student at OTH Amberg with hands-on experience in backend development, machine learning, computer vision and NLP. Currently working as a Student Assistant building automated analysis pipelines, and exploring model pruning and explainable AI in my spare time.</p>
 		            <ul class="about-info mt-4 px-md-0 px-2">
-		            	<li class="d-flex"><span>Name:</span> <span>Kashif Riyaz</span></li>
+		            	<li class="d-flex"><span>Name:</span> <span>Kashif</span></li>
 		            	<li class="d-flex"><span>Based in:</span> <span>Amberg, Germany</span></li>
 		            	<li class="d-flex"><span>Email:</span> <span>kashifriyaz03@gmail.com</span></li>
 		            	<li class="d-flex"><span>GitHub:</span> <span><a href="https://github.com/kashif003" target="_blank">Link</a></span></li>
@@ -500,30 +576,14 @@
           </div>
         </div>
 
-        <div class="row no-gutters block-9">
-          <div class="col-md-6 order-md-last d-flex">
-            <form action="#" class="bg-light p-4 p-md-5 contact-form">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Your Name">
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Your Email">
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Subject">
-              </div>
-              <div class="form-group">
-                <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
-              </div>
-              <div class="form-group">
-                <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
-              </div>
-            </form>
-          
+        <div class="row no-gutters block-9 align-items-center">
+          <div class="col-md-6 d-flex align-items-center justify-content-center py-5">
+            <p class="mb-0">Prefer to just reach out directly?</p>
           </div>
 
-          <div class="col-md-6 d-flex">
-          	<div class="img" style="background-image: var(--profile-photo);"></div>
+          <div class="col-md-6 d-flex flex-column align-items-center justify-content-center py-5">
+          	<div class="contact-photo-circle mb-4" style="background-image: var(--contact-photo);"></div>
+            <a href="#" id="connect-btn" class="btn btn-primary py-3 px-5">Connect</a>
           </div>
         </div>
       </div>
@@ -621,6 +681,16 @@
         var next = current === 'light' ? 'dark' : 'light';
         root.setAttribute('data-theme', next);
         localStorage.setItem('theme', next);
+      });
+    })();
+  </script>
+  <script>
+    (function () {
+      var btn = document.getElementById('connect-btn');
+      if (!btn) return;
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        window.location.href = 'mailto:kashifriyaz03@gmail.com?subject=' + encodeURIComponent('Hello from your portfolio site');
       });
     })();
   </script>
