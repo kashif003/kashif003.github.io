@@ -517,7 +517,7 @@ img{ max-width: 100%; display:block; }
 .good-desc{ font-size: 14.5px; color: var(--ink-soft); margin: 0 0 14px; }
 .good-link{ margin-top: 0; color: var(--marigold-soft); }
 
-/* candle light that follows the cursor, the rest of the page sits at 80% */
+/* candle light that follows the cursor, the rest of the page sits at 60% */
 .candle-light{
   position: fixed;
   inset: 0;
@@ -528,7 +528,7 @@ img{ max-width: 100%; display:block; }
   background: radial-gradient(circle 300px at var(--candle-x, 50%) var(--candle-y, 50%),
     rgba(255, 190, 110, 0.07) 0%,
     rgba(255, 190, 110, 0.03) 35%,
-    rgba(0, 0, 0, 0.2) 100%);
+    rgba(0, 0, 0, 0.4) 100%);
 }
 .candle-light.is-lit{ opacity: 1; }
 
@@ -585,11 +585,7 @@ img{ max-width: 100%; display:block; }
 .timeline ul{ margin: 0; padding-left: 20px; font-size: 14.5px; color: var(--ink-soft); }
 .timeline ul li{ margin-bottom: 6px; }
 .education{ padding: 100px 0 110px; background: var(--ivory-warm); }
-.edu-grid{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
-  gap: 22px;
-}
+.edu-card{ max-width: 760px; margin: 0 auto; }
 .job-card{
   background: var(--card);
   border: 1px solid var(--line);
