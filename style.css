@@ -414,7 +414,7 @@ img{ max-width: 100%; display:block; }
 /* ==========================================================
    WORK GALLERY
    ========================================================== */
-.moments{ padding: 100px 0 110px; background: var(--ivory-warm); }
+.moments{ padding: 100px 0 110px;  }
 .moments-grid{
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
@@ -502,6 +502,8 @@ img{ max-width: 100%; display:block; }
   line-height: 1.25;
   margin: 0 0 14px;
 }
+.good-meta{ font-family: var(--font-mono); font-size: 12px; color: var(--accent); margin: 0 0 6px; }
+.good-desc{ font-size: 14.5px; color: var(--ink-soft); margin: 0 0 14px; }
 .good-link{
   margin-top: auto;
   align-self: flex-start;
@@ -521,12 +523,47 @@ img{ max-width: 100%; display:block; }
   color: #FAF1E4;
 }
 .good-card-more p{ margin: 0 0 18px; color: #EAD9C9; }
-.good-card-more .good-link{ margin-top: 0; color: var(--marigold-soft); }
+.good-card-more .good-meta{ font-family: var(--font-mono); font-size: 12px; color: var(--accent); margin: 0 0 6px; }
+.good-desc{ font-size: 14.5px; color: var(--ink-soft); margin: 0 0 14px; }
+.good-link{ margin-top: 0; color: var(--marigold-soft); }
+
+/* ==========================================================
+   EXPERIENCE & EDUCATION
+   ========================================================== */
+.experience{ padding: 100px 0 110px; background: var(--ivory-warm); }
+.education{ padding: 100px 0 110px; }
+.job-list{ display: flex; flex-direction: column; gap: 22px; max-width: 820px; margin: 0 auto; }
+.edu-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+  gap: 22px;
+}
+.job-card{
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 24px 26px;
+}
+.job-date{ font-family: var(--font-mono); font-size: 12.5px; color: var(--accent); margin: 0 0 6px; }
+.job-card h3{ font-family: var(--font-display); font-size: 20px; line-height: 1.25; margin: 0 0 4px; }
+.job-org{ font-size: 14.5px; color: var(--ink-soft); margin: 0 0 12px; }
+.job-card ul{ margin: 0; padding-left: 20px; font-size: 14.5px; color: var(--ink-soft); }
+.job-card li{ margin-bottom: 6px; }
 
 /* ==========================================================
    SKILLS
    ========================================================== */
-.skills{ padding: 100px 0 110px; }
+.skills{ padding: 100px 0 110px; background: var(--ivory-warm); }
+.skill-group{
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--accent);
+  margin: 32px 0 14px;
+}
 .skill-tags{
   list-style: none;
   margin: 0 auto;

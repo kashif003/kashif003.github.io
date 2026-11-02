@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Browser window with extracted data rows">
+  <rect width="400" height="300" fill="#2F1E17"/>
+  <rect x="60" y="48" width="280" height="204" rx="14" fill="#3A2820" stroke="#E8A33D" stroke-width="3"/>
+  <path d="M60 86h280" stroke="#E8A33D" stroke-width="3"/>
+  <circle cx="84" cy="67" r="6" fill="#E8A33D"/><circle cx="106" cy="67" r="6" fill="#F4C877"/><circle cx="128" cy="67" r="6" fill="#7A8450"/>
+  <rect x="84" y="108" width="150" height="12" rx="6" fill="#FAF1E4"/>
+  <rect x="84" y="134" width="232" height="9" rx="4.5" fill="#B9A08C"/>
+  <rect x="84" y="154" width="206" height="9" rx="4.5" fill="#B9A08C"/>
+  <rect x="84" y="174" width="222" height="9" rx="4.5" fill="#B9A08C"/>
+  <rect x="84" y="204" width="64" height="26" rx="6" fill="#6E2F42"/><rect x="156" y="204" width="64" height="26" rx="6" fill="#7A8450"/><rect x="228" y="204" width="64" height="26" rx="6" fill="#E8A33D"/>
+</svg>
