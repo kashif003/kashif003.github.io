@@ -73,7 +73,9 @@ if(!entrance){
       const data = await res.json().catch(() => ({}));
       if(!res.ok) throw new Error(data.error);
       form.reset();
-      showStatus('Thanks! Your message is on its way.', 'is-success');
+      showStatus('✅ Thanks! Your message is on its way.', 'is-success');
+      button.textContent = '✅ Sent';
+      setTimeout(() => { button.textContent = 'Send message'; }, 4000);
     } catch(err){
       showStatus((err.message || 'Could not send your message.') + ' You can also email me directly.', 'is-error');
     } finally {
