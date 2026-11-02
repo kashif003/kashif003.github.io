@@ -90,7 +90,7 @@ img{ max-width: 100%; display:block; }
   pointer-events: none;
 }
 .entrance-inner{ text-align: center; padding: 20px; }
-.lantern{ display:block; margin: 0 auto 18px; animation: swing 3.2s ease-in-out infinite; transform-origin: 28px 8px; }
+.lantern{ display:block; overflow: visible; margin: 0 auto 18px; animation: swing 3.2s ease-in-out infinite; transform-origin: 28px 8px; }
 #lanternGlow{ animation: flicker 2.6s ease-in-out infinite; transform-origin: center; }
 @keyframes swing{
   0%,100%{ transform: rotate(-4deg); }
