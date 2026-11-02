@@ -530,9 +530,38 @@ img{ max-width: 100%; display:block; }
 /* ==========================================================
    EXPERIENCE & EDUCATION
    ========================================================== */
-.experience{ padding: 100px 0 110px; background: var(--ivory-warm); }
-.education{ padding: 100px 0 110px; }
-.job-list{ display: flex; flex-direction: column; gap: 22px; max-width: 820px; margin: 0 auto; }
+.career{ padding: 100px 0 110px; background: var(--ivory-warm); }
+.career-inner{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr));
+  gap: 60px 70px;
+  align-items: start;
+}
+.career-col{ min-width: 0; scroll-margin-top: 110px; }
+.career .section-eyebrow,
+.career .section-title{ text-align: left; }
+.career .skill-group{ text-align: left; margin-top: 24px; }
+.career .skill-tags{ justify-content: flex-start; max-width: none; }
+.timeline{
+  list-style: none;
+  margin: 28px 0 0;
+  padding: 0 0 0 28px;
+  border-left: 2px solid var(--marigold);
+}
+.timeline li{ position: relative; padding-bottom: 30px; }
+.timeline li:last-child{ padding-bottom: 0; }
+.timeline li::before{
+  content: "";
+  position: absolute;
+  top: 3px; left: -37px;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: var(--marigold);
+  box-shadow: 0 0 0 4px var(--ivory-warm);
+}
+.timeline h3{ font-family: var(--font-display); font-size: 19px; line-height: 1.25; margin: 0 0 2px; }
+.timeline .job-org{ margin: 0; }
+.education{ padding: 100px 0 110px; background: var(--ivory-warm); }
 .edu-grid{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
@@ -553,7 +582,6 @@ img{ max-width: 100%; display:block; }
 /* ==========================================================
    SKILLS
    ========================================================== */
-.skills{ padding: 100px 0 110px; background: var(--ivory-warm); }
 .skill-group{
   font-family: var(--font-mono);
   font-size: 13px;
@@ -617,7 +645,7 @@ img{ max-width: 100%; display:block; }
 /* ==========================================================
    CONTACT
    ========================================================== */
-.contact{ padding: 100px 0 110px; background: var(--ivory-warm); }
+.contact{ padding: 100px 0 110px; }
 .contact-grid{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
