@@ -559,8 +559,8 @@ img{ max-width: 100%; display:block; }
   background: var(--marigold);
   box-shadow: 0 0 0 4px var(--ivory-warm);
 }
-.timeline li.is-current::before{ animation: blink 1.4s ease-in-out infinite; }
-@keyframes blink{ 50%{ opacity: 0.2; } }
+.timeline li.is-current::before{ animation: pulse 1.4s ease-in-out infinite; }
+@keyframes pulse{ 50%{ transform: scale(1.7); } }
 .timeline h3{ font-family: var(--font-display); font-size: 19px; line-height: 1.25; margin: 0 0 2px; }
 .timeline .job-org{ margin: 0; }
 .education{ padding: 100px 0 110px; background: var(--ivory-warm); }
