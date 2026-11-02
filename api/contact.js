@@ -6,6 +6,17 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const clean = (value) => (typeof value === 'string' ? value.trim() : '');
 
+// asks Cloudflare whether the token from the form's Turnstile widget is genuine
+async function passesTurnstile(token) {
+  const response = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ secret: process.env.TURNSTILE_SECRET_KEY, response: token }),
+  });
+  const result = await response.json();
+  return result.success === true;
+}
+
 module.exports = async function handler(req, res) {
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST');
@@ -31,12 +42,21 @@ module.exports = async function handler(req, res) {
     return res.status(400).json({ error: 'Please enter a message under 5000 characters.' });
   }
 
-  if (!process.env.RESEND_API_KEY) {
-    console.error('RESEND_API_KEY is not set');
+  if (!process.env.RESEND_API_KEY || !process.env.TURNSTILE_SECRET_KEY) {
+    console.error('RESEND_API_KEY or TURNSTILE_SECRET_KEY is not set');
     return res.status(500).json({ error: 'Could not send your message.' });
   }
 
+  const token = clean(body['cf-turnstile-response']);
+  if (!token) {
+    return res.status(400).json({ error: 'Please complete the verification.' });
+  }
+
   try {
+    if (!(await passesTurnstile(token))) {
+      return res.status(403).json({ error: 'Verification failed. Please try again.' });
+    }
+
     const response = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {

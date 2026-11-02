@@ -78,6 +78,8 @@ if(!entrance){
       showStatus((err.message || 'Could not send your message.') + ' You can also email me directly.', 'is-error');
     } finally {
       button.disabled = false;
+      // tokens are single use, so the next send needs a fresh one
+      if(window.turnstile) window.turnstile.reset();
     }
   });
 })();

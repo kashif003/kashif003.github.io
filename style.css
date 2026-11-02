@@ -628,6 +628,7 @@ img{ max-width: 100%; display:block; }
 .contact-form textarea{ resize: vertical; min-height: 130px; }
 .contact-form input:focus,
 .contact-form textarea:focus{ outline: 2px solid var(--marigold); outline-offset: 1px; }
+.contact-form .cf-turnstile{ align-self: center; margin-bottom: 18px; max-width: 100%; }
 .contact-form .cta-primary{ align-self: center; border: 0; cursor: pointer; font-family: inherit; }
 .contact-form .cta-primary:disabled{ opacity: 0.6; cursor: default; }
 .contact-direct .contact-status{ min-height: 22px; margin-top: 14px; text-align: center; font-size: 14.5px; }
