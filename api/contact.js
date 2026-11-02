@@ -35,11 +35,11 @@ module.exports = async function handler(req, res) {
   if (!EMAIL_RE.test(email) || email.length > 254) {
     return res.status(400).json({ error: 'Please enter a valid email address.' });
   }
-  if (!title || title.length > 150) {
-    return res.status(400).json({ error: 'Please enter a title under 150 characters.' });
+  if (title.length > 150) {
+    return res.status(400).json({ error: 'Please keep the title under 150 characters.' });
   }
-  if (!message || message.length > 5000) {
-    return res.status(400).json({ error: 'Please enter a message under 5000 characters.' });
+  if (message.length > 5000) {
+    return res.status(400).json({ error: 'Please keep the message under 5000 characters.' });
   }
 
   if (!process.env.RESEND_API_KEY || !process.env.TURNSTILE_SECRET_KEY) {
@@ -67,8 +67,8 @@ module.exports = async function handler(req, res) {
         from: FROM,
         to: [TO],
         reply_to: email,
-        subject: `[Portfolio] ${title}`,
-        text: `From: ${email}\n\n${message}`,
+        subject: `[Portfolio] ${title || 'New contact'}`,
+        text: `From: ${email}\n\n${message || '(no message)'}`,
       }),
     });
 
