@@ -50,6 +50,37 @@ if(!entrance){
     try { localStorage.setItem('theme', next); } catch(e){ /* theme just won't persist */ }
   });
 })();
+// ============ CONTACT FORM ============
+(function setupContactForm(){
+  const form = document.getElementById('contactForm');
+  if(!form) return;
+  const status = document.getElementById('contactStatus');
+  const button = form.querySelector('button[type="submit"]');
+  function showStatus(text, kind){
+    status.textContent = text;
+    status.className = 'contact-status ' + kind;
+  }
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    button.disabled = true;
+    showStatus('Sending…', '');
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(Object.fromEntries(new FormData(form)))
+      });
+      const data = await res.json().catch(() => ({}));
+      if(!res.ok) throw new Error(data.error);
+      form.reset();
+      showStatus('Thanks! Your message is on its way.', 'is-success');
+    } catch(err){
+      showStatus((err.message || 'Could not send your message.') + ' You can also email me directly.', 'is-error');
+    } finally {
+      button.disabled = false;
+    }
+  });
+})();
 // ============ FOOTER YEAR ============
 document.getElementById('year').textContent = new Date().getFullYear();
 // ============ SCROLL REVEAL ============
