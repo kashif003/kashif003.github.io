@@ -523,12 +523,10 @@ img{ max-width: 100%; display:block; }
 .good-card-more p{ margin: 0 0 18px; color: #EAD9C9; }
 .good-card-more .good-link{ margin-top: 0; color: var(--marigold-soft); }
 
-.view-all{ text-align: center; margin: 44px 0 0; }
-
 /* ==========================================================
    SKILLS
    ========================================================== */
-.skills{ padding: 100px 0 110px; background: var(--ivory-warm); }
+.skills{ padding: 100px 0 110px; }
 .skill-tags{
   list-style: none;
   margin: 0 auto;
@@ -565,7 +563,6 @@ img{ max-width: 100%; display:block; }
   border-radius: var(--radius);
   padding: 18px 18px 24px;
 }
-.blog-grid-preview{ max-width: 780px; margin: 0 auto; }
 .blog-img{ display: block; border-radius: 10px; overflow: hidden; aspect-ratio: 16/10; background: var(--ivory-warm); margin-bottom: 14px; }
 .blog-img img{ width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
 .blog-card:hover .blog-img img{ transform: scale(1.04); }
