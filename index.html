@@ -58,9 +58,9 @@
     <nav class="main-nav" aria-label="Main">
       <a href="#about">About</a>
       <a href="#work">Work</a>
-      <a href="#projects">Projects</a>
+      <a href="/projects/">Projects</a>
       <a href="#skills">Skills</a>
-      <a href="#blog">Blog</a>
+      <a href="/blog/">Blog</a>
       <a href="#contact">Contact</a>
     </nav>
     <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle dark/light mode">
@@ -79,7 +79,7 @@
     <p class="hero-sub">AI Engineer &amp; Backend Developer</p>
     <div class="hero-actions">
       <a href="#contact" class="cta-primary">Contact me →</a>
-      <a href="#projects" class="cta-ghost">My projects</a>
+      <a href="/projects/" class="cta-ghost">My projects</a>
     </div>
   </div>
   <div class="hero-crates" aria-hidden="true">
@@ -159,10 +159,7 @@
     <h2 class="section-title">My Projects</h2>
     <p class="section-sub">A selection of academic and personal projects in machine learning, robotics and computer vision.</p>
 
-    <div class="goods-slider">
-      <button class="slider-arrow" id="goodsPrev" aria-label="Previous project">‹</button>
-
-      <div class="goods-grid" id="goodsTrack">
+    <div class="goods-grid">
 
         <article class="good-card reveal">
           <div class="price-tag">Deep Learning</div>
@@ -173,44 +170,9 @@
 
         <article class="good-card reveal">
           <div class="price-tag price-tag-alt">Robotics</div>
-          <div class="good-img"><img src="images/autonomous_mobile_robot_simulation.jpg" alt="" loading="lazy"></div>
-          <h3>Autonomous Mobile Robot Simulation (Webots)</h3>
-          <a class="good-link" href="https://github.com/guohere/rosbot_python" target="_blank" rel="noopener">View on GitHub →</a>
-        </article>
-
-        <article class="good-card reveal">
-          <div class="price-tag price-tag-moss">Machine Learning</div>
-          <div class="good-img"><img src="images/predictive_fault_detection_in_wind_turbine.jpeg" alt="" loading="lazy"></div>
-          <h3>Predictive Fault Detection in Wind Turbines</h3>
-          <a class="good-link" href="https://github.com/kashif003/Machine_learning__SS" target="_blank" rel="noopener">View on GitHub →</a>
-        </article>
-
-        <article class="good-card reveal">
-          <div class="price-tag price-tag-alt">Robotics</div>
           <div class="good-img"><img src="images/robotic_arm_mastering_tic-tac-toe.jpg" alt="" loading="lazy"></div>
           <h3>Robotic Arm Mastering Tic-Tac-Toe</h3>
           <a class="good-link" href="https://github.com/kashif003/Completed-work/tree/main/Robotic%20Arm%20Mastering%20Tic-Tac-Toe%20A%20Game%20of%20Strategy%20and%20Precision" target="_blank" rel="noopener">View on GitHub →</a>
-        </article>
-
-        <article class="good-card reveal">
-          <div class="price-tag">Explainable AI</div>
-          <div class="good-img"><img src="images/XAI_using_gard_CAM_in_pytorch.jpg" alt="" loading="lazy"></div>
-          <h3>Explainable AI Using Grad-CAM in PyTorch</h3>
-          <a class="good-link" href="https://github.com/kashif003/Completed-work/tree/main/Explainable%20AI%20using%20Class%20Activation%20in%20pytorch" target="_blank" rel="noopener">View on GitHub →</a>
-        </article>
-
-        <article class="good-card reveal">
-          <div class="price-tag price-tag-moss">Immersive Computing</div>
-          <div class="good-img"><img src="images/ARVR.png" alt="" loading="lazy"></div>
-          <h3>AR/VR</h3>
-          <a class="good-link" href="https://github.com/kashif003/AR-VR" target="_blank" rel="noopener">View on GitHub →</a>
-        </article>
-
-        <article class="good-card reveal">
-          <div class="price-tag price-tag-alt">Quantum Computing</div>
-          <div class="good-img"><img src="images/quantum%20circuit%20mining.jpeg" alt="" loading="lazy"></div>
-          <h3>Quantum Circuit Mining</h3>
-          <a class="good-link" href="https://github.com/kashif003/quantum-equation-mining" target="_blank" rel="noopener">View on GitHub →</a>
         </article>
 
         <article class="good-card reveal">
@@ -220,25 +182,9 @@
           <a class="good-link" href="https://github.com/kashif003/ollama-pdf-rag" target="_blank" rel="noopener">View on GitHub →</a>
         </article>
 
-        <article class="good-card reveal">
-          <div class="price-tag price-tag-moss">Localization &amp; Sensing</div>
-          <div class="good-img"><img src="images/EMI.jpeg" alt="" loading="lazy"></div>
-          <h3>EMI</h3>
-          <a class="good-link" href="https://github.com/kashif003/imu-rssi-indoor-localization" target="_blank" rel="noopener">View on GitHub →</a>
-        </article>
-
-        <article class="good-card good-card-more reveal">
-          <h3>More on my GitHub</h3>
-          <p>View all projects</p>
-          <a class="good-link" href="https://github.com/kashif003" target="_blank" rel="noopener">github.com/kashif003 →</a>
-        </article>
-
-      </div>
-
-      <button class="slider-arrow" id="goodsNext" aria-label="Next project">›</button>
     </div>
 
-    <div class="goods-dots" id="goodsDots"></div>
+    <p class="view-all"><a href="/projects/" class="cta-primary">View all projects →</a></p>
   </div>
 </section>
 
@@ -278,7 +224,7 @@
     <h2 class="section-title">My Blog</h2>
     <p class="section-sub">Articles I&rsquo;ve written on Medium about AI, robotics and explainability.</p>
 
-    <div class="blog-grid">
+    <div class="blog-grid blog-grid-preview">
       <article class="blog-card reveal">
         <a class="blog-img" href="https://medium.com/@kashifriyaz03/understanding-activation-based-methods-abm-in-explainable-ai-xai-37be1962d7b5" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="images/blogs/abm-xai.jpg" alt="" loading="lazy"></a>
         <p class="blog-meta">February 3, 2025 · Medium</p>
@@ -292,14 +238,9 @@
         <h3><a href="https://medium.com/@kashifriyaz03/robotic-arm-mastering-tic-tac-toe-a-game-of-strategy-and-precision-835397992179" target="_blank" rel="noopener">Robotic Arm Mastering Tic-Tac-Toe: A Game of Strategy and Precision</a></h3>
         <p>An autonomous robotic arm that learns to play and win at tic-tac-toe, merging mechanical engineering with strategic decision-making.</p>
       </article>
-
-      <article class="blog-card reveal">
-        <a class="blog-img" href="https://medium.com/@kashifriyaz03/unveiling-the-black-box-explainable-ai-using-class-activation-mappings-924bd0152f3b" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="images/blogs/class-activation-mappings-xai.png" alt="" loading="lazy"></a>
-        <p class="blog-meta">August 13, 2024 · Medium</p>
-        <h3><a href="https://medium.com/@kashifriyaz03/unveiling-the-black-box-explainable-ai-using-class-activation-mappings-924bd0152f3b" target="_blank" rel="noopener">Unveiling the Black Box: Explainable AI Using Class Activation Mappings</a></h3>
-        <p>Visualization techniques for interpreting neural network behavior through class activation mapping, making opaque AI systems more transparent.</p>
-      </article>
     </div>
+
+    <p class="view-all"><a href="/blog/" class="cta-primary">View all posts →</a></p>
   </div>
 </section>
 
@@ -351,8 +292,8 @@
         <ul class="footer-list">
           <li><a href="#top">Home</a></li>
           <li><a href="#about">About</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#blog">Blog</a></li>
+          <li><a href="/projects/">Projects</a></li>
+          <li><a href="/blog/">Blog</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </div>

@@ -16,16 +16,22 @@ const enterBtn = document.getElementById('enterBtn');
 function alreadyEntered(){
   try { return sessionStorage.getItem('entered') === '1'; } catch(e){ return false; }
 }
+function markEntered(){
+  try { sessionStorage.setItem('entered', '1'); } catch(e){ /* storage blocked, the overlay just shows again next visit */ }
+}
 function enterSite(){
   entrance.classList.add('hide');
   document.body.style.overflow = '';
-  try { sessionStorage.setItem('entered', '1'); } catch(e){ /* storage blocked, the overlay just shows again next visit */ }
+  markEntered();
   window.removeEventListener('keydown', onKeyEnter);
 }
 function onKeyEnter(e){
   if(e.key === 'Enter' || e.key === ' '){ enterSite(); }
 }
-if(alreadyEntered() || window.location.hash){
+if(!entrance){
+  // arrived on an inner page, so don't stop them at the door on the way home
+  markEntered();
+} else if(alreadyEntered() || window.location.hash){
   // skip the overlay on repeat visits and on links straight to a section
   entrance.style.display = 'none';
 } else {
@@ -61,65 +67,3 @@ if('IntersectionObserver' in window && revealEls.length){
 } else {
   revealEls.forEach(el => el.classList.add('in-view'));
 }
-
-// ============ PROJECTS SLIDER ============
-(function setupGoodsSlider(){
-  const track = document.getElementById('goodsTrack');
-  const prevBtn = document.getElementById('goodsPrev');
-  const nextBtn = document.getElementById('goodsNext');
-  const dotsWrap = document.getElementById('goodsDots');
-  if(!track || !prevBtn || !nextBtn || !dotsWrap) return;
-
-  const cards = Array.from(track.children);
-
-  // build one dot per card
-  cards.forEach((_, i) => {
-    const dot = document.createElement('button');
-    dot.className = 'dot';
-    dot.setAttribute('aria-label', 'Go to project ' + (i + 1));
-    dot.addEventListener('click', () => {
-      track.scrollTo({ left: cards[i].offsetLeft - cards[0].offsetLeft, behavior: 'smooth' });
-    });
-    dotsWrap.appendChild(dot);
-  });
-  const dots = Array.from(dotsWrap.children);
-
-  function cardStep(){
-    // width of a card plus its gap, based on the first card's box
-    const card = cards[0];
-    const style = window.getComputedStyle(track);
-    const gap = parseFloat(style.columnGap || style.gap || '0');
-    return card.getBoundingClientRect().width + gap;
-  }
-
-  function scrollByCards(direction){
-    track.scrollBy({ left: direction * cardStep(), behavior: 'smooth' });
-  }
-
-  prevBtn.addEventListener('click', () => scrollByCards(-1));
-  nextBtn.addEventListener('click', () => scrollByCards(1));
-
-  function updateUI(){
-    const maxScroll = track.scrollWidth - track.clientWidth - 2; // small tolerance
-    prevBtn.disabled = track.scrollLeft <= 2;
-    nextBtn.disabled = track.scrollLeft >= maxScroll;
-
-    // figure out which card is closest to the track's left edge to highlight its dot
-    let closestIndex = 0;
-    let closestDist = Infinity;
-    cards.forEach((card, i) => {
-      const dist = Math.abs(card.offsetLeft - cards[0].offsetLeft - track.scrollLeft);
-      if(dist < closestDist){ closestDist = dist; closestIndex = i; }
-    });
-    if(nextBtn.disabled){ closestIndex = cards.length - 1; }
-    dots.forEach((d, i) => d.classList.toggle('active', i === closestIndex));
-  }
-
-  track.addEventListener('scroll', () => {
-    window.requestAnimationFrame(updateUI);
-  }, { passive: true });
-
-  window.addEventListener('resize', updateUI);
-
-  updateUI();
-})();

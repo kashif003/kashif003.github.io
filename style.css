@@ -203,8 +203,10 @@ img{ max-width: 100%; display:block; }
   width: 0%; height: 2px; background: var(--marigold);
   transition: width 0.25s ease;
 }
-.main-nav a:hover::after{ width: 100%; }
-.main-nav a:hover{ color: var(--ink); }
+.main-nav a:hover::after,
+.main-nav a[aria-current="page"]::after{ width: 100%; }
+.main-nav a:hover,
+.main-nav a[aria-current="page"]{ color: var(--ink); }
 .theme-toggle{
   border: 1px solid var(--line);
   background: var(--ivory-warm);
@@ -308,6 +310,10 @@ img{ max-width: 100%; display:block; }
 .crate-2{ transform: rotate(4deg) translateY(20px); width: 110px; height: 110px; }
 .crate-3{ transform: rotate(-3deg) translateY(-10px); width: 70px; height: 70px; }
 @media (max-width: 720px){ .hero-crates{ display:none; } }
+
+.hero-page{ padding: 70px 0 74px; }
+.hero-page .hero-sub{ font-size: 17px; margin-bottom: 0; }
+.goods-page, .blog-page{ padding: 70px 0 100px; }
 
 /* ==========================================================
    SECTION HEADERS (shared)
@@ -436,31 +442,16 @@ img{ max-width: 100%; display:block; }
 }
 
 /* ==========================================================
-   PROJECTS — SLIDER
+   PROJECTS
    ========================================================== */
 .goods{ padding: 100px 0 110px; }
 
-.goods-slider{
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
 .goods-grid{
-  flex: 1 1 auto;
-  min-width: 0;
-  display: flex;
-  gap: 26px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  padding: 26px 4px 26px;
-  /* hide native scrollbar, keep it scrollable */
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+  gap: 34px 26px;
+  padding-top: 14px;
 }
-.goods-grid::-webkit-scrollbar{ display: none; }
 
 .good-card{
   position: relative;
@@ -470,10 +461,6 @@ img{ max-width: 100%; display:block; }
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 22px 22px 26px;
-
-  flex: 0 0 auto;
-  width: min(300px, 70vw);
-  scroll-snap-align: start;
 }
 .price-tag{
   position: absolute;
@@ -536,50 +523,7 @@ img{ max-width: 100%; display:block; }
 .good-card-more p{ margin: 0 0 18px; color: #EAD9C9; }
 .good-card-more .good-link{ margin-top: 0; color: var(--marigold-soft); }
 
-/* slider arrows */
-.slider-arrow{
-  flex: 0 0 auto;
-  width: 44px; height: 44px;
-  border-radius: 50%;
-  border: 1px solid var(--line);
-  background: var(--card);
-  color: var(--accent);
-  font-size: 22px;
-  line-height: 1;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 8px 18px rgba(43,27,20,0.10);
-  transition: transform 0.2s ease, background 0.2s ease, opacity 0.2s ease;
-}
-.slider-arrow:hover{ transform: translateY(-2px); background: var(--marigold-soft); color: #2B1B14; }
-.slider-arrow:disabled{ opacity: 0.3; cursor: default; transform: none; background: var(--card); color: var(--accent); }
-
-@media (max-width: 640px){
-  .slider-arrow{ width: 32px; height: 32px; font-size: 18px; }
-  .goods-slider{ gap: 4px; }
-}
-
-/* dot indicators */
-.goods-dots{
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 9px;
-  margin-top: 6px;
-}
-.goods-dots .dot{
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: var(--line);
-  cursor: pointer;
-  border: none;
-  padding: 0;
-  transition: background 0.2s ease, transform 0.2s ease;
-}
-.goods-dots .dot:hover{ transform: scale(1.2); }
-.goods-dots .dot.active{ background: var(--marigold); }
+.view-all{ text-align: center; margin: 44px 0 0; }
 
 /* ==========================================================
    SKILLS
@@ -621,6 +565,7 @@ img{ max-width: 100%; display:block; }
   border-radius: var(--radius);
   padding: 18px 18px 24px;
 }
+.blog-grid-preview{ max-width: 780px; margin: 0 auto; }
 .blog-img{ display: block; border-radius: 10px; overflow: hidden; aspect-ratio: 16/10; background: var(--ivory-warm); margin-bottom: 14px; }
 .blog-img img{ width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
 .blog-card:hover .blog-img img{ transform: scale(1.04); }
