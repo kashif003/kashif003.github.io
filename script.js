@@ -39,26 +39,6 @@ if(!entrance){
   window.addEventListener('keydown', onKeyEnter);
   document.body.style.overflow = 'hidden';
 }
-// ============ CANDLE LIGHT ============
-(function setupCandleLight(){
-  // touch screens have no cursor to follow, so they keep full brightness
-  if(!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
-  const light = document.createElement('div');
-  light.className = 'candle-light';
-  light.setAttribute('aria-hidden', 'true');
-  document.body.appendChild(light);
-  let frame = 0;
-  window.addEventListener('mousemove', (e) => {
-    if(frame) return;
-    frame = window.requestAnimationFrame(() => {
-      frame = 0;
-      light.style.setProperty('--candle-x', e.clientX + 'px');
-      light.style.setProperty('--candle-y', e.clientY + 'px');
-      light.classList.add('is-lit');
-    });
-  }, { passive: true });
-  document.documentElement.addEventListener('mouseleave', () => light.classList.remove('is-lit'));
-})();
 // ============ THEME TOGGLE ============
 (function setupTheme(){
   const root = document.documentElement;

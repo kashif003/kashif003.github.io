@@ -517,21 +517,6 @@ img{ max-width: 100%; display:block; }
 .good-desc{ font-size: 14.5px; color: var(--ink-soft); margin: 0 0 14px; }
 .good-link{ margin-top: 0; color: var(--marigold-soft); }
 
-/* candle light that follows the cursor, the rest of the page sits at 60% */
-.candle-light{
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  background: radial-gradient(circle 300px at var(--candle-x, 50%) var(--candle-y, 50%),
-    rgba(255, 190, 110, 0.07) 0%,
-    rgba(255, 190, 110, 0.03) 35%,
-    rgba(0, 0, 0, 0.4) 100%);
-}
-.candle-light.is-lit{ opacity: 1; }
-
 /* ==========================================================
    EXPERIENCE & EDUCATION
    ========================================================== */
