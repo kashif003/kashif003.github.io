@@ -87,14 +87,7 @@ if(!entrance){
   });
 })();
 // ============ CHATBOT ============
-// hidden until launch: open the site with ?chat=preview to try it, ?chat=off to hide it again
 (function setupChat(){
-  const params = new URLSearchParams(window.location.search);
-  try {
-    if(params.has('chat')) localStorage.setItem('chatPreview', params.get('chat') === 'off' ? '' : '1');
-    if(localStorage.getItem('chatPreview') !== '1') return;
-  } catch(e){ return; }
-
   const SITE_KEY = '0x4AAAAAAFxG0nzuOuS9-H9T';
   const MAX_QUESTIONS = 3;
   const JOKES = [
