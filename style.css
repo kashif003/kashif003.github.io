@@ -810,6 +810,24 @@ img{ max-width: 100%; display:block; }
   transition: transform 0.2s ease, background 0.2s ease;
 }
 .chat-launcher:hover{ transform: translateY(-2px); background: var(--marigold-soft); }
+.chat-lantern{ display: block; height: 100%; width: auto; }
+.chat-lantern-glass{ fill: var(--marigold); }
+.chat-launcher .chat-lantern{ height: 22px; }
+.chat-launcher .chat-lantern-glass{ fill: #FFF3D6; }
+.chat-avatar{
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 30px; height: 30px;
+  padding: 5px 0;
+  border-radius: 50%;
+  background: var(--plum-deep);
+}
+.chat-head .chat-avatar{ width: 40px; height: 40px; padding: 7px 0; }
+/* Lumi glows while writing an answer */
+.chat-row:has(.chat-typing) .chat-lantern{ animation: lumi-glow 1.2s ease-in-out infinite; }
+@keyframes lumi-glow{ 50%{ filter: drop-shadow(0 0 5px #F4C877) brightness(1.2); } }
+.is-resting .chat-lantern{ filter: grayscale(0.6) brightness(0.7); }
 .chat-launcher:focus-visible{ outline: 2px solid var(--ink); outline-offset: 3px; }
 .chat-panel{
   position: fixed;
@@ -829,8 +847,7 @@ img{ max-width: 100%; display:block; }
 .chat-panel[hidden]{ display: none; }
 .chat-head{
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   gap: 12px;
   padding: 16px 18px 12px;
   border-bottom: 1px solid var(--line);
@@ -838,7 +855,9 @@ img{ max-width: 100%; display:block; }
 .chat-title{ font-family: var(--font-display); font-size: 18px; font-weight: 600; margin: 0 0 2px; }
 .chat-note{ font-size: 12.5px; color: var(--ink-soft); margin: 0; }
 .chat-note a{ color: var(--accent); }
+.chat-head-text{ flex: 1; min-width: 0; }
 .chat-close{
+  align-self: flex-start;
   border: 0; background: none;
   color: var(--ink-soft);
   font-size: 24px; line-height: 1;
@@ -865,7 +884,9 @@ img{ max-width: 100%; display:block; }
 }
 .chat-msg a{ color: inherit; }
 .chat-user{ align-self: flex-end; background: var(--marigold); color: #2B1B14; border-bottom-right-radius: 4px; }
-.chat-bot{ align-self: flex-start; background: var(--ivory-warm); border-bottom-left-radius: 4px; }
+.chat-row{ display: flex; align-items: flex-end; gap: 8px; max-width: 92%; }
+.chat-row .chat-msg{ max-width: none; }
+.chat-bot{ background: var(--ivory-warm); border-bottom-left-radius: 4px; }
 .chat-note-msg{ font-style: italic; color: var(--ink-soft); }
 .chat-joke{ border: 1px dashed var(--marigold); }
 /* three dots while the answer is on its way */

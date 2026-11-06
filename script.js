@@ -110,24 +110,32 @@ if(!entrance){
     failed: 'Something went wrong on my side. You can reach Kashif through the contact form.'
   };
   const SUGGESTIONS = ['What is Kashif working on now?', 'What are his strongest skills?', 'What kind of role is he looking for?'];
+  // Lumi, the assistant, is a little lantern like the one on the entrance screen
+  const LANTERN = '<svg class="chat-lantern" viewBox="0 0 56 72" aria-hidden="true">' +
+    '<line x1="28" y1="0" x2="28" y2="10" stroke="#6E2F42" stroke-width="4"/>' +
+    '<rect x="14" y="10" width="28" height="6" rx="2" fill="#6E2F42"/>' +
+    '<path class="chat-lantern-glass" d="M18 16 Q18 12 28 12 Q38 12 38 16 L40 52 Q40 60 28 60 Q16 60 16 52 Z"/>' +
+    '<rect x="14" y="58" width="28" height="6" rx="2" fill="#6E2F42"/>' +
+    '<line x1="28" y1="64" x2="28" y2="72" stroke="#6E2F42" stroke-width="4"/></svg>';
 
   const launcher = document.createElement('button');
   launcher.type = 'button';
   launcher.className = 'chat-launcher';
   launcher.setAttribute('aria-expanded', 'false');
   launcher.setAttribute('aria-controls', 'chatPanel');
-  launcher.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><span>Ask about Kashif</span>';
+  launcher.innerHTML = LANTERN + '<span>Ask Lumi</span>';
 
   const panel = document.createElement('section');
   panel.id = 'chatPanel';
   panel.className = 'chat-panel';
   panel.hidden = true;
   panel.setAttribute('role', 'dialog');
-  panel.setAttribute('aria-label', 'Chat about Kashif');
+  panel.setAttribute('aria-label', 'Chat with Lumi, Kashif\u2019s AI assistant');
   panel.innerHTML =
     '<div class="chat-head">' +
-      '<div><p class="chat-title">Ask about Kashif</p>' +
-      '<p class="chat-note">AI answers can be wrong. Check the <a href="/pdf/Kashif_Riyaz_CV.pdf">CV</a>.</p></div>' +
+      '<span class="chat-avatar">' + LANTERN + '</span>' +
+      '<div class="chat-head-text"><p class="chat-title">Lumi</p>' +
+      '<p class="chat-note">Kashif\u2019s AI assistant. Answers can be wrong, so check the <a href="/pdf/Kashif_Riyaz_CV.pdf">CV</a>.</p></div>' +
       '<button type="button" class="chat-close" aria-label="Close chat">&times;</button>' +
     '</div>' +
     '<div class="chat-log" aria-live="polite"></div>' +
@@ -190,14 +198,24 @@ if(!entrance){
         bubble.append(part);
       }
     });
-    log.append(bubble);
+    let item = bubble;
+    if(who === 'bot'){
+      item = document.createElement('div');
+      item.className = 'chat-row';
+      item.innerHTML = '<span class="chat-avatar">' + LANTERN + '</span>';
+      item.append(bubble);
+    }
+    log.append(item);
     log.scrollTop = log.scrollHeight;
-    return bubble;
+    return item;
   }
 
   function endChat(text){
     if(ended) return;
     ended = true;
+    // Lumi's lantern dims once it's off shift
+    panel.classList.add('is-resting');
+    launcher.classList.add('is-resting');
     addMessage('bot', text, 'chat-joke');
     const actions = document.createElement('div');
     actions.className = 'chat-actions';
@@ -320,7 +338,10 @@ if(!entrance){
     panel.hidden = false;
     launcher.setAttribute('aria-expanded', 'true');
     if(!log.childElementCount){
-      addMessage('bot', 'Hi! I can answer questions about Kashif’s experience, projects and skills. You can ask ' + MAX_QUESTIONS + ' questions a day.');
+      const left = questionsLeft();
+      const allowance = left === MAX_QUESTIONS ? 'You\u2019ve got ' + left + ' questions today.'
+        : left === 1 ? 'You\u2019ve got 1 question left today.' : 'You\u2019ve got ' + left + ' questions left today.';
+      addMessage('bot', 'Hi, I\u2019m Lumi, Kashif\u2019s AI assistant \uD83C\uDFEE Ask me about his experience, projects or skills. ' + allowance);
       SUGGESTIONS.forEach((text) => {
         const chip = document.createElement('button');
         chip.type = 'button';
