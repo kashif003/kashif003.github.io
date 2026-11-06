@@ -91,11 +91,15 @@ document.getElementById('year').textContent = new Date().getFullYear();
 const revealEls = document.querySelectorAll('.reveal');
 if('IntersectionObserver' in window && revealEls.length){
   const io = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        entry.target.classList.add('in-view');
-        io.unobserve(entry.target);
-      }
+    // things that scroll into view together appear one after another
+    entries.filter(entry => entry.isIntersecting).forEach((entry, i) => {
+      const el = entry.target;
+      const delay = Math.min(i, 5) * 110;
+      el.style.transitionDelay = delay + 'ms';
+      el.classList.add('in-view');
+      io.unobserve(el);
+      // clear the delay once it has appeared, so hover effects stay instant
+      setTimeout(() => { el.style.transitionDelay = ''; }, delay + 800);
     });
   }, { threshold: 0.15 });
   revealEls.forEach(el => io.observe(el));
