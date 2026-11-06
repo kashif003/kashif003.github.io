@@ -544,7 +544,8 @@ img{ max-width: 100%; display:block; }
   position: absolute;
   top: 0; bottom: 0; left: 0;
   width: 2px;
-  background: var(--marigold);
+  border-radius: 2px;
+  background: linear-gradient(to bottom, var(--marigold) 0%, var(--marigold) 85%, transparent 100%);
   transform: scaleY(0);
   transform-origin: top;
   transition: transform 1.3s cubic-bezier(.45,.05,.35,1);
@@ -555,7 +556,7 @@ img{ max-width: 100%; display:block; }
 .timeline > li::before{
   content: "";
   position: absolute;
-  top: 3px; left: -37px;
+  top: 3px; left: -35px;
   width: 12px; height: 12px;
   border-radius: 50%;
   background: var(--marigold);
@@ -571,8 +572,12 @@ img{ max-width: 100%; display:block; }
 .timeline.in-view > li:nth-child(4)::before{ transition-delay: 0.85s; }
 .timeline.in-view > li:nth-child(5)::before{ transition-delay: 1.1s; }
 .timeline.in-view > li:nth-child(n+6)::before{ transition-delay: 1.3s; }
-.timeline > li.is-current::before{ animation: pulse 1.4s ease-in-out infinite; }
-@keyframes pulse{ 50%{ transform: scale(1.7); } }
+/* current roles stay the same size and glow brighter, then deeper */
+.timeline > li.is-current::before{ animation: glow 2.4s ease-in-out infinite; }
+@keyframes glow{
+  0%, 100%{ background: #B8731F; }
+  50%{ background: #FFD27A; box-shadow: 0 0 0 4px var(--ivory-warm), 0 0 14px 5px rgba(232,163,61,0.55); }
+}
 .timeline h3{ font-family: var(--font-display); font-size: 19px; line-height: 1.25; margin: 0 0 2px; }
 .timeline .job-org{ margin: 0; }
 .timeline summary{ list-style: none; cursor: pointer; }
