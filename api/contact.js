@@ -1,21 +1,12 @@
 // Sends contact form messages to my inbox through Resend.
 // RESEND_API_KEY lives in Vercel's environment variables, never in this repo.
+const passesTurnstile = require('../lib/turnstile');
+
 const TO = 'kashifriyaz03@gmail.com';
 const FROM = 'Portfolio Contact <onboarding@resend.dev>';
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const clean = (value) => (typeof value === 'string' ? value.trim() : '');
-
-// asks Cloudflare whether the token from the form's Turnstile widget is genuine
-async function passesTurnstile(token) {
-  const response = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ secret: process.env.TURNSTILE_SECRET_KEY, response: token }),
-  });
-  const result = await response.json();
-  return result.success === true;
-}
 
 module.exports = async function handler(req, res) {
   if (req.method !== 'POST') {
