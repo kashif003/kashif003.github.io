@@ -26,6 +26,10 @@
       "destination": "https://library.kashifriyaz.com/projects"
     },
     {
+      "source": "/projects/:slug",
+      "destination": "https://library.kashifriyaz.com/projects/:slug"
+    },
+    {
       "source": "/library",
       "destination": "https://library.kashifriyaz.com/library"
     },
