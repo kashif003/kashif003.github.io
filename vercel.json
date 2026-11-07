@@ -38,6 +38,10 @@
       "destination": "https://library.kashifriyaz.com/library"
     },
     {
+      "source": "/library/:path+/",
+      "destination": "https://library.kashifriyaz.com/library/:path+"
+    },
+    {
       "source": "/library/:path*",
       "destination": "https://library.kashifriyaz.com/library/:path*"
     },
