@@ -128,7 +128,7 @@ if(!entrance){
     '<div class="chat-head">' +
       '<span class="chat-avatar">' + LANTERN + '</span>' +
       '<div class="chat-head-text"><p class="chat-title">Lumi</p>' +
-      '<p class="chat-note">Kashif\u2019s AI assistant. Answers can be wrong, so check the <a href="/pdf/Kashif_Riyaz_CV.pdf">CV</a>.</p></div>' +
+      '<p class="chat-note">Kashif\u2019s AI assistant. Answers can be wrong, so check the <a href="/pdf/Kashif_Riyaz_CV.pdf">CV</a>. Questions go to Groq (<a href="/datenschutz/#k2">privacy</a>).</p></div>' +
       '<button type="button" class="chat-close" aria-label="Close chat">&times;</button>' +
     '</div>' +
     '<div class="chat-log" aria-live="polite"></div>' +
