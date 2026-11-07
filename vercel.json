@@ -1,11 +1,45 @@
 {
-  "functions": { "api/chat.js": { "includeFiles": "profile.md" } },
+  "functions": {
+    "api/chat.js": {
+      "includeFiles": "profile.md"
+    }
+  },
   "rewrites": [
-    { "source": "/blog", "destination": "https://library.kashifriyaz.com/blog" },
-    { "source": "/blog/", "destination": "https://library.kashifriyaz.com/blog" },
-    { "source": "/blog/:slug", "destination": "https://library.kashifriyaz.com/blog/:slug" },
-    { "source": "/projects", "destination": "https://library.kashifriyaz.com/projects" },
-    { "source": "/projects/", "destination": "https://library.kashifriyaz.com/projects" },
-    { "source": "/_next/:path*", "destination": "https://library.kashifriyaz.com/_next/:path*" }
+    {
+      "source": "/blog",
+      "destination": "https://library.kashifriyaz.com/blog"
+    },
+    {
+      "source": "/blog/",
+      "destination": "https://library.kashifriyaz.com/blog"
+    },
+    {
+      "source": "/blog/:slug",
+      "destination": "https://library.kashifriyaz.com/blog/:slug"
+    },
+    {
+      "source": "/projects",
+      "destination": "https://library.kashifriyaz.com/projects"
+    },
+    {
+      "source": "/projects/",
+      "destination": "https://library.kashifriyaz.com/projects"
+    },
+    {
+      "source": "/library",
+      "destination": "https://library.kashifriyaz.com/library"
+    },
+    {
+      "source": "/library/",
+      "destination": "https://library.kashifriyaz.com/library"
+    },
+    {
+      "source": "/library/:path*",
+      "destination": "https://library.kashifriyaz.com/library/:path*"
+    },
+    {
+      "source": "/_next/:path*",
+      "destination": "https://library.kashifriyaz.com/_next/:path*"
+    }
   ]
 }
