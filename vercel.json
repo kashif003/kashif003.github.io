@@ -48,6 +48,10 @@
     {
       "source": "/_next/:path*",
       "destination": "https://library.kashifriyaz.com/_next/:path*"
+    },
+    {
+      "source": "/sitemap.xml",
+      "destination": "https://library.kashifriyaz.com/sitemap.xml"
     }
   ]
 }
