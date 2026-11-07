@@ -46,6 +46,22 @@
       "destination": "https://library.kashifriyaz.com/library/:path*"
     },
     {
+      "source": "/tools",
+      "destination": "https://library.kashifriyaz.com/tools"
+    },
+    {
+      "source": "/tools/",
+      "destination": "https://library.kashifriyaz.com/tools"
+    },
+    {
+      "source": "/tools/:path+/",
+      "destination": "https://library.kashifriyaz.com/tools/:path+"
+    },
+    {
+      "source": "/tools/:path*",
+      "destination": "https://library.kashifriyaz.com/tools/:path*"
+    },
+    {
       "source": "/_next/:path*",
       "destination": "https://library.kashifriyaz.com/_next/:path*"
     },
