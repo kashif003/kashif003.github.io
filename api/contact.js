@@ -3,7 +3,7 @@
 const passesTurnstile = require('../lib/turnstile');
 
 const TO = 'kashifriyaz03@gmail.com';
-const FROM = 'Portfolio Contact <onboarding@resend.dev>';
+const FROM = 'Portfolio Contact <contact@kashifriyaz.com>';
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const clean = (value) => (typeof value === 'string' ? value.trim() : '');
