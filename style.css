@@ -722,6 +722,11 @@ img{ max-width: 100%; display:block; }
   border-radius: 12px;
 }
 .contact-form textarea{ resize: vertical; min-height: 130px; }
+.contact-form .email-hint{ margin: -10px 0 16px; font-size: 13.5px; color: var(--ink-soft); }
+.contact-form .email-hint button{
+  padding: 0; border: 0; background: none; cursor: pointer;
+  font: inherit; color: var(--accent); text-decoration: underline;
+}
 .contact-form input:focus,
 .contact-form textarea:focus{ outline: 2px solid var(--marigold); outline-offset: 1px; }
 .contact-form .cf-turnstile{ align-self: center; margin-bottom: 18px; max-width: 100%; }

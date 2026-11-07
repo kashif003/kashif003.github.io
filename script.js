@@ -60,6 +60,71 @@ if(!entrance){
     status.textContent = text;
     status.className = 'contact-status ' + kind;
   }
+
+  // "Did you mean …@gmail.com?" for common typos in the email domain. Only a hint: the
+  // visitor can still send the address exactly as typed.
+  const email = document.getElementById('contactEmail');
+  const hint = document.getElementById('emailHint');
+  const DOMAINS = ['gmail.com', 'googlemail.com', 'yahoo.com', 'yahoo.de', 'ymail.com',
+    'outlook.com', 'outlook.de', 'hotmail.com', 'hotmail.de', 'live.com', 'live.de',
+    'icloud.com', 'me.com', 'mail.com', 'aol.com', 'aol.de', 'gmx.de', 'gmx.net', 'gmx.at',
+    'gmx.ch', 'web.de', 't-online.de', 'freenet.de', 'mail.de', 'posteo.de',
+    'protonmail.com', 'proton.me'];
+  const TLD_FIXES = { con: 'com', cmo: 'com', ocm: 'com', vom: 'com', xom: 'com', comm: 'com',
+    nte: 'net', ent: 'net', ogr: 'org', rog: 'org', dee: 'de' };
+  function editDistance(a, b){
+    const row = Array.from({ length: b.length + 1 }, (_, j) => j);
+    for(let i = 1; i <= a.length; i++){
+      let prev = row[0];
+      row[0] = i;
+      for(let j = 1; j <= b.length; j++){
+        const keep = row[j];
+        row[j] = Math.min(row[j] + 1, row[j - 1] + 1, prev + (a[i - 1] === b[j - 1] ? 0 : 1));
+        prev = keep;
+      }
+    }
+    return row[b.length];
+  }
+  function suggestEmail(value){
+    const at = value.lastIndexOf('@');
+    if(at < 1) return null;
+    const local = value.slice(0, at);
+    const typed = value.slice(at + 1).trim().toLowerCase();
+    if(!typed) return null;
+    // fix a mistyped ending first (gmail.con → gmail.com), then the name before it
+    const dot = typed.lastIndexOf('.');
+    const tldFix = dot > 0 && TLD_FIXES[typed.slice(dot + 1)];
+    const domain = tldFix ? typed.slice(0, dot + 1) + tldFix : typed;
+    if(DOMAINS.includes(domain)) return domain === typed ? null : local + '@' + domain;
+    // short domains allow one wrong letter, longer ones two
+    const allowed = domain.length > 6 ? 2 : 1;
+    let best = null, bestDistance = allowed + 1;
+    for(const d of DOMAINS){
+      const dist = editDistance(domain, d);
+      // on a tie, prefer the domain the visitor was still typing (gmx.ne → gmx.net)
+      if(dist < bestDistance || (dist === bestDistance && d.startsWith(domain))){ best = d; bestDistance = dist; }
+    }
+    if(best) return local + '@' + best;
+    return domain === typed ? null : local + '@' + domain;
+  }
+  function updateHint(){
+    const suggestion = suggestEmail(email.value.trim());
+    hint.hidden = !suggestion;
+    if(!suggestion) return;
+    const fixButton = document.createElement('button');
+    fixButton.type = 'button';
+    fixButton.textContent = suggestion;
+    fixButton.addEventListener('click', () => {
+      email.value = suggestion;
+      hint.hidden = true;
+      email.focus();
+    });
+    hint.replaceChildren('Did you mean ', fixButton, '?');
+  }
+  if(email && hint){
+    email.addEventListener('change', updateHint);
+    email.addEventListener('input', () => { if(!hint.hidden) updateHint(); });
+  }
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     button.disabled = true;
@@ -73,6 +138,7 @@ if(!entrance){
       const data = await res.json().catch(() => ({}));
       if(!res.ok) throw new Error(data.error);
       form.reset();
+      if(hint) hint.hidden = true;
       showStatus('✅ Thanks! Your message is on its way.', 'is-success');
       button.textContent = '✅ Sent';
       setTimeout(() => { button.textContent = 'Send message'; }, 4000);
@@ -334,7 +400,7 @@ if(!entrance){
       const left = questionsLeft();
       const allowance = left === MAX_QUESTIONS ? 'You\u2019ve got ' + left + ' questions today.'
         : left === 1 ? 'You\u2019ve got 1 question left today.' : 'You\u2019ve got ' + left + ' questions left today.';
-      addMessage('bot', 'Hi, I\u2019m Lumi, Kashif\u2019s AI assistant \uD83C\uDFEE Ask me about his experience, projects or skills. ' + allowance);
+      addMessage('bot', 'Hi, I\u2019m Lumi, Kashif\u2019s AI assistant. Ask me about his experience, projects or skills. ' + allowance);
       SUGGESTIONS.forEach((text) => {
         const chip = document.createElement('button');
         chip.type = 'button';

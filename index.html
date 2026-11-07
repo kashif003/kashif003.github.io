@@ -341,7 +341,8 @@
       <p>Prefer to send a message right here?</p>
       <form id="contactForm" class="contact-form">
         <label for="contactEmail">Your email *</label>
-        <input id="contactEmail" type="email" name="email" autocomplete="email" maxlength="254" required />
+        <input id="contactEmail" type="email" name="email" autocomplete="email" maxlength="254" required aria-describedby="emailHint" />
+        <p id="emailHint" class="email-hint" aria-live="polite" hidden></p>
         <label for="contactTitle">Title</label>
         <input id="contactTitle" type="text" name="title" maxlength="150" />
         <label for="contactMessage">Message</label>
