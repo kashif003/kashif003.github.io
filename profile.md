@@ -5,7 +5,7 @@ Draft knowledge file for the portfolio chatbot. The bot answers only from this f
 - Everything here may be shown to any visitor. Keep private details out.
 - Start date and work permit are left out on purpose, so the bot says it doesn't know.
 - Sources: kashifriyaz.com (6 November 2026), the master CV and Kashif's own additions.
-- Target length is about 1,500 words.
+- Target length is about 2,000 words (the tools section added 15 November 2026).
 -->
 
 ## Summary
@@ -143,6 +143,48 @@ He is especially interested in integrating AI into real products, like this chat
 
 More projects are on GitHub: https://github.com/kashif003
 
+## Tools Kashif has built
+
+Kashif built a set of free web tools for students and engineers, at https://kashifriyaz.com/tools. They need no sign-up and no account. Almost everything runs in the visitor's own browser, and the work is saved there, not on a server. He built them himself as a personal project, with Next.js, hosted on Vercel.
+
+### Lumi Study
+**https://kashifriyaz.com/tools/markdown-latex** (formerly called Luminote)
+
+A note-taking tool for studying, with two modes:
+
+- **Write:** Markdown notes with LaTeX maths, code highlighting, Mermaid diagrams, tables and callouts, shown in a live preview. The editor has shortcuts, find and replace, and multiple cursors.
+- **Study:** a PDF, a YouTube video or a web article on one side and the notes on the other, organised in notebooks.
+  - Highlight PDFs and articles in four colours and add comments. The highlighted PDF can be downloaded with real annotations.
+  - Citing a highlight or a video moment adds a numbered reference like [1]. Clicking it opens the PDF page, the article sentence or the exact second of the video.
+  - Notes can be saved as Markdown, printed as PDF, or exported as a notebook (.zip) to continue in another browser.
+
+### Lumi Focus
+**https://kashifriyaz.com/tools/pomodoro** (formerly called Lantern Street)
+
+A Pomodoro focus timer with a cosy theme: a candle lantern burns while you focus, and every finished session lights a lamp post on your own street.
+
+- Any session length, presets like 25/5 and 50/10, and several sessions in a row.
+- A stopwatch mode that counts up.
+- Optional strict mode, sounds, statistics and a streak.
+
+### Lumi Board
+**https://kashifriyaz.com/tools/whiteboard**
+
+A whiteboard for sketches, diagrams and notes, built on Excalidraw. Boards save themselves in the browser and can be exported as PNG, SVG, a file or PDF.
+
+### Lumi Polish
+**https://kashifriyaz.com/tools/grammar** (formerly called Lumi Proof)
+
+An English grammar and spell checker that runs entirely in the browser, so the text is never sent anywhere. It uses the Harper engine (as WebAssembly) plus Kashif's own extra rules for common mistakes, such as "Me and him was", "I seen" or "am working since 2020".
+
+### PDF Smith
+**https://kashifriyaz.com/tools/pdf**
+
+Combine, split, rearrange, rotate and compress PDFs, and turn photos, camera shots and text notes into PDFs. Files never leave the computer.
+
+### This chatbot
+The assistant answering questions on his website is also his work. It answers only from a profile Kashif wrote, using an open model hosted on Groq.
+
 ## Skills
 
 - **Software:** Python, FastAPI, Django, React, AWS, Docker, Kafka, Git
@@ -191,4 +233,4 @@ He is a big football fan and supports Manchester United. He also loves MMA and b
 - **LinkedIn:** https://www.linkedin.com/in/kashif-riyaz-04170b16a
 - **GitHub:** https://github.com/kashif003
 - **CV:** https://kashifriyaz.com/pdf/Kashif_Riyaz_CV.pdf
-- **Website:** https://kashifriyaz.com (projects at /projects, blog at /blog)
+- **Website:** https://kashifriyaz.com (projects at /projects, blog at /blog, tools at /tools)
