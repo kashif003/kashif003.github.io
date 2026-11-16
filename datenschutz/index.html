@@ -134,7 +134,7 @@
 <li><strong>Keine Analyse- oder Werbedienste:</strong> Wir setzen keine Analyse-, Tracking- oder Werbedienste ein.</li>
 </ul>
 <h2 id="k4">Bibliothek und Zugangsanfragen</h2>
-<p>Die Seiten „Blog“, „Projekte“ und „Bibliothek“ werden aus einer Datenbank bei Supabase geladen. Einzelne Inhalte sind privat: Besucher sehen nur Titel und Beschreibung und können über ein Formular Zugang anfragen. Wird die Anfrage angenommen, erhält die anfragende Person per E-Mail einen privaten Link, der 7 Tage gültig ist.</p>
+<p>Die Seiten „Blog“, „Projekte“ und „Bibliothek“ werden aus einer Datenbank bei Supabase geladen. Einzelne Inhalte sind privat: Besucher sehen nur Titel und Beschreibung und können über ein Formular Zugang anfragen. Wird die Anfrage angenommen, erhält die anfragende Person per E-Mail einen privaten Link, der für eine begrenzte Zeit gültig ist (die Gültigkeitsdauer steht in der E-Mail).</p>
 <ul class="m-elements">
 <li><strong>Verarbeitete Daten:</strong> Name, E-Mail-Adresse, optional ein Grund für die Anfrage, Zeitpunkt der Anfrage und der Entscheidung; bei Freigabe außerdem der private Link (gespeichert nur als verschlüsselter Hashwert), sein Ablaufdatum und der Zeitpunkt des letzten Aufrufs; technische Daten der Bot-Prüfung (Cloudflare Turnstile).</li>
 <li><strong>Zweck:</strong> Bearbeitung der Anfrage und Bereitstellung des angefragten Inhalts; Schutz vor Missbrauch (höchstens drei Anfragen pro E-Mail-Adresse und Tag).</li>
