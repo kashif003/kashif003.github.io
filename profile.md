@@ -134,6 +134,7 @@ He is especially interested in integrating AI into real products, like this chat
 
 - Investigated the behaviour of standard vision architectures, including ResNet, AlexNet and DenseNet, to explain and interpret their performance.
 - Visualised Gradient-weighted Class Activation Mappings (Grad-CAM) to make the models more transparent.
+- **Live demo:** visitors can upload their own photo and see the heatmaps (Grad-CAM, Grad-CAM++, XGrad-CAM, Eigen-CAM) for DenseNet-121, ResNet-50 or AlexNet, at any layer: https://kashifriyaz.com/projects/explainable-ai-using-grad-cam-in-pytorch. Kashif deployed it himself as a Gradio app on Hugging Face (ZeroGPU): https://huggingface.co/spaces/Kashif00003/grad-cam-explorer
 
 ### Python Framework for Data Acquisition via Web Scraping
 **01/2024 – 03/2024 · Data & NLP · Code: no public link**
