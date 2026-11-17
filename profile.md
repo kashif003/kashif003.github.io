@@ -181,7 +181,7 @@ An English grammar and spell checker that runs entirely in the browser, so the t
 ### Lumi Rooms
 **https://kashifriyaz.com/tools/rooms**
 
-Online study rooms for up to 5 people: anyone can create a room and share the link. Video, audio, screen sharing and chat, plus Lumi Focus, Notes, Board and Polish as tabs inside the room (the videos float in a small window while a tool is open). The creator is the host and can let people in one by one, lock the room, mute or remove someone and end it. Video and sound go directly between the participants (WebRTC); nothing is recorded or stored.
+Online study rooms for up to 5 people: anyone can create a room and share the link (after agreeing to the rules and privacy notice). Video, audio, screen sharing, chat, full screen, floating a single person's video, and a glow on whoever is speaking. Tabs for Lumi Focus, Notes, Board and Polish: the Focus timer can run for everyone together or alone, and Notes and the Board can be personal or shared live with the room. The creator is the host and can let people in one by one (with a knock sound), lock the room, mute or remove someone, and end it, or hand the host role to someone else when leaving. Video and sound go directly between the participants (WebRTC); nothing is recorded or stored.
 
 ### PDF Smith
 **https://kashifriyaz.com/tools/pdf**
