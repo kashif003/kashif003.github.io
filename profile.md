@@ -178,6 +178,11 @@ A whiteboard for sketches, diagrams and notes, built on Excalidraw. Boards save 
 
 An English grammar and spell checker that runs entirely in the browser, so the text is never sent anywhere. It uses the Harper engine (as WebAssembly) plus Kashif's own extra rules for common mistakes, such as "Me and him was", "I seen" or "am working since 2020".
 
+### Lumi Rooms
+**https://kashifriyaz.com/tools/rooms**
+
+Online study rooms for up to 5 people: anyone can create a room and share the link. Video, audio, screen sharing and chat, plus Lumi Focus, Notes, Board and Polish as tabs inside the room (the videos float in a small window while a tool is open). The creator is the host and can let people in one by one, lock the room, mute or remove someone and end it. Video and sound go directly between the participants (WebRTC); nothing is recorded or stored.
+
 ### PDF Smith
 **https://kashifriyaz.com/tools/pdf**
 
